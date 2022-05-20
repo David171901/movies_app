@@ -1,22 +1,23 @@
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
+import { get } from "../utils/httpClient";
+import { Spinner } from "../components/Spinner";
 
 function MovieDetails() {
     const { movieId } = useParams();
+    const [isLoading,setIsLoaging] = useState(true)
     const [movie, setMovie] = useState(null);
 
     useEffect(()=>{
-        fetch("https://api.themoviedb.org/3/movie/"+movieId,{
-          headers:{
-            Authorization:
-            "Bearer  eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5NWM5YmIxNGUyNzJjODM2ZWY3MjhiOTFlZGQwYzQwNyIsInN1YiI6IjYyODcxY2IyMDg1OWI0MTQ5ZDJjMmM2NiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.JkNPoktPCwafiQKQoWBURCYPf98Ubkc2JSRbg34AWlw",
-            "Content-Type": "application/json;charset=utf-8"
-          }
-        }).then((result)=> result.json()).then((data)=>{
+        get("/movie/"+movieId).then((data)=>{
             setMovie(data);
+            setIsLoaging(false)
         });
       },[movieId])
 
+      if(isLoading){
+          return <Spinner></Spinner>
+      }
 
       if (!movie) {
         return null;

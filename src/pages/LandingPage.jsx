@@ -1,6 +1,6 @@
 function LandingPage(props){
     return(
-        <div>
+        <div className="flex flex-col justify-center items-center">
             {props.children}
         </div>
     );
