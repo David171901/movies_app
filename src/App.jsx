@@ -14,7 +14,7 @@ function App() {
 
   return (
     <Router>
-      <header >
+      <header className='bg-black text-white'>
         <Link to='/'>
           <h1 className='text-center text-4xl font-bold py-7'>Movie App</h1>
         </Link>

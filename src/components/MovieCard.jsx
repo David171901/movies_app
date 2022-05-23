@@ -4,7 +4,7 @@ function MovieCard(props){
     const imageUrl = "https://image.tmdb.org/t/p/w300" + props.movie.poster_path;
     return(
         <li className="flex flex-col justify-center items-center mb-10 first:mt-10 cursor-pointer" >
-            <Link to={'/movies/'+props.movie.id}>
+            <Link to={'/movies/'+props.movie.id} className="flex flex-col justify-center items-center">
                 <img
                     width={230}
                     height={345}
