@@ -23,7 +23,10 @@ function MovieDetails() {
         return null;
       }
 
+
     const imageUrl = "https://image.tmdb.org/t/p/w300" + movie.poster_path;
+
+    console.log(movie)
     return (
         <div className="container mx-auto flex flex-col md:flex-row justify-center items-center">
             <img
@@ -40,6 +43,15 @@ function MovieDetails() {
                 </p>
                 <p>
                     <span className="font-bold">Original Language:</span> <span className="font-light">{movie.original_language}</span>
+                </p>
+                <p>
+                    <span className="font-bold">Genre:</span> <span className="font-light">
+                        {
+                            movie.genres.map(element => {
+                            return <span>{element.name + ' '}</span>
+                            })
+                        }
+                    </span>
                 </p>
                 <p>
                     <span className="font-bold">Description:</span> <span className="font-light">{movie.overview}</span>

@@ -18,14 +18,16 @@ function SearchMovie(){
 
     const handleSubmit  = (event) => {
         event.preventDefault();
-        history.push("/?search=" + searchText);
+        history.push("?search=" + searchText);
     };
 
     return(
         <div>
-            <form className="flex items-center" 
+            <form 
+            className="flex items-center" 
             onSubmit={handleSubmit }>   
-                <input className="w-64 shadow appearance-none border rounded-l-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" 
+                <input 
+                className="w-64 shadow appearance-none border rounded-l-lg py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" 
                 placeholder="Search"
                 value={searchText}
                 onChange={(e)=>setSearchText(e.target.value)}/>
