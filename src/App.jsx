@@ -1,7 +1,5 @@
-import {MovieSection} from './components/MovieSection';
 import {LandingPage} from "./pages/LandingPage"
 import {MovieDetails} from "./pages/MovieDetails"
-import {SearchMovie} from "./components/SearchMovie";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,7 +8,6 @@ import {
 } from "react-router-dom";
 
 function App() {
-
 
   return (
     <Router>
@@ -25,10 +22,7 @@ function App() {
             <MovieDetails/>
           </Route>
           <Route path="/">
-            <LandingPage>
-              <SearchMovie/>
-              <MovieSection/>
-            </LandingPage>
+            <LandingPage/>
           </Route>
         </Switch>
       </main>

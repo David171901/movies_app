@@ -9,7 +9,7 @@ function MovieDetails() {
     const [movie, setMovie] = useState(null);
 
     useEffect(()=>{
-        get("/movie/"+movieId).then((data)=>{
+        get("/movie/"+ movieId).then((data)=>{
             setMovie(data);
             setIsLoading(false)
         });
@@ -23,12 +23,10 @@ function MovieDetails() {
         return null;
       }
 
-
     const imageUrl = "https://image.tmdb.org/t/p/w300" + movie.poster_path;
 
-    console.log(movie)
     return (
-        <div className="container mx-auto flex flex-col md:flex-row justify-center items-center">
+        <div className="container mx-auto flex flex-col md:flex-row justify-center items-center" >
             <img
             src={imageUrl}
             alt={movie.title}
@@ -47,8 +45,8 @@ function MovieDetails() {
                 <p>
                     <span className="font-bold">Genre:</span> <span className="font-light">
                         {
-                            movie.genres.map(element => {
-                            return <span>{element.name + ' '}</span>
+                            movie.genres.map((element,index) => {
+                            return <span key={index}>{element.name + ' '}</span>
                             })
                         }
                     </span>
